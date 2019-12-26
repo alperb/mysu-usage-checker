@@ -4,7 +4,7 @@ import time
 import sys
 
 args = sys.argv
-if len(args) != 3:
+if len(args) is not 3:
     print("Usage: python file.py username password")
     sys.exit()
 else:
@@ -21,9 +21,8 @@ driver.get("https://mysu.sabanciuniv.edu/up/internet_usage")
 time.sleep(1)
 driver.find_element_by_id("username").send_keys(username)
 driver.find_element_by_id("password").send_keys(password)
-driver.find_element_by_name("submit").click();
+driver.find_element_by_name("submit").click()
 
-#driver.get("https://mysu.sabanciuniv.edu/up/internet_usage")
 try:
     usage = driver.find_element_by_class_name("td_data").text
     if(len(usage) < 1):
